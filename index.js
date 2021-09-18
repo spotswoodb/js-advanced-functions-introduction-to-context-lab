@@ -1,34 +1,34 @@
-// Your code here
-function createEmployeeRecord(employeeArr) {
-    const employeeObj = {
-        firstName: employeeArr[0],
-        familyName: employeeArr[1],
-        title: employeeArr[2],
-        payPerHour: employeeArr[3],
-        timeInEvents: [],
-        timeOutEvents: []
-    }
-    return employeeObj
-}
+// // Your code here
+// function createEmployeeRecord(employeeArr) {
+//     const employeeObj = {
+//         firstName: employeeArr[0],
+//         familyName: employeeArr[1],
+//         title: employeeArr[2],
+//         payPerHour: employeeArr[3],
+//         timeInEvents: [],
+//         timeOutEvents: []
+//     }
+//     return employeeObj
+// }
 
-function createEmployeeRecords(nestedArray) {
-    const nestedObj = nestedArray.map(employee => {
-        return createEmployeeRecord(employee)
-    })
-    return nestedObj
-}
+// function createEmployeeRecords(nestedArray) {
+//     const nestedObj = nestedArray.map(employee => {
+//         return createEmployeeRecord(employee)
+//     })
+//     return nestedObj
+// }
 
-function createTimeInEvent(employeeObj, dateTimeStamp) {
-    let timeInObj = {}
+// function createTimeInEvent(employeeObj, dateTimeStamp) {
+//     let timeInObj = {}
 
-    timeInObj.type = "TimeIn"
-    timeInObj.date = dateTimeStamp.split(' ')[0]
-    timeInObj.hour = parseInt(dateTimeStamp.split(' ')[1])
+//     timeInObj.type = "TimeIn"
+//     timeInObj.date = dateTimeStamp.split(' ')[0]
+//     timeInObj.hour = parseInt(dateTimeStamp.split(' ')[1])
 
-    employeeObj.timeInEvents.push(timeInObj)
+//     employeeObj.timeInEvents.push(timeInObj)
 
-    return employeeObj
-}
+//     return employeeObj
+// }
 
 function createTimeOutEvent(employeeObj, dateTimeStamp) {
     let timeOutObj = {}
@@ -77,3 +77,36 @@ function wagesEarnedOnDate(employeeObj, date) {
     function findEmployeeByFirstName(srcArray, firstName){
         return srcArray.find(employee => employee.firstName === firstName)
     }
+
+function createEmployeeRecord(array){
+    const obj = {
+        firstName: array[0],
+        familyName: array[1],
+        title: array[2],
+        payPerHour: array[3],
+        timeInEvents: [],
+        timeOutEvents: [],
+    }
+    return obj
+}
+
+function createEmployeeRecords(nestedArray){
+    const nestedObj = nestedArray.map(employee => {
+        return createEmployeeRecord(employee)
+    })
+    return nestedObj
+}
+
+function createTimeInEvent(employeeObj, dateTimeStamp){
+    const timeInObj = {}
+    
+
+    timeInObj.type = "TimeIn"
+    timeInObj.date = dateTimeStamp.split(' ')[0]
+    timeInObj.hour = parseInt(dateTimeStamp.split(' ')[1])
+   
+    employeeObj.timeInEvents.push(timeInObj)
+    
+
+    return employeeObj
+}
